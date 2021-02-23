@@ -7,3 +7,25 @@
 <p>Name: <%= name %></p>
 <p>Email: <%= email %></p>
 <p>License: <%= license %></p>
+<p>Image: <%= image %></p>
+<hr>
+
+
+<form method="POST" action="/apartment">
+
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name">
+  
+    <label for="bedrooms">Bedroom Type</label>
+    <input id="bedrooms" type="text" name="bedrooms">
+
+    <label for="bathrooms">Bathrooms Type</label>
+    <input id="bathrooms" type="text" name="bathrooms">
+
+    <label for="userId">UserId</label>
+    <input id="userId" type="text" name="userId">
+
+
+  
+    <input type="submit">
+</form>
