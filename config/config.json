@@ -1,16 +1,18 @@
 {
   "development": {
-    "database": "express_auth_dev",
+   "database": "golden_apartment_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "express_auth_test",
+    "database": "golden_apartment_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-   "database": "express_auth_prod",
+    "username": "root",
+    "password": null,
+    "database": "golden_apartment_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

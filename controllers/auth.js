@@ -24,10 +24,10 @@ router.get('/logout', (req, res) => {
 router.post('/signup', (req, res) => {
   // we now have access to the user info (req.body);
   // console.log(req.body);
-  const { email, name, password } = req.body; // goes and us access to whatever key/value inside of the object (req.body)
+  const { email, name, license, image, password } = req.body; // goes and us access to whatever key/value inside of the object (req.body)
   db.user.findOrCreate({
     where: { email },
-    defaults: { name, password }
+    defaults: { name, license, image, password }
   })
   .then(([user, created]) => {
     if (created) {

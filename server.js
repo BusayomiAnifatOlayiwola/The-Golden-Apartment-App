@@ -2,8 +2,19 @@ require('dotenv').config();
 const express = require('express');
 const layouts = require('express-ejs-layouts');
 const session = require('express-session');
-const passport = require('./config/ppConfig'); //
+const passport = require('./config/ppConfig'); 
 const flash = require('connect-flash');
+
+
+
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+//upload for image
+const uploads = multer({ dest: './uploads'})
+
+
+
+
 
 
 const app = express();
@@ -45,14 +56,17 @@ app.use((req, res, next) => {
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
+app.use('/users', require('./controllers/user'));
+app.use('/review', require('./controllers/review'));
+app.use('/apartment', require('./controllers/apartment'));
 
 app.get('/', (req, res) => {
   res.render('index');
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
-  const { id, name, email } = req.user.get(); 
-  res.render('profile', { id, name, email });
+  const { id, name, license, image, email } = req.user.get(); 
+  res.render('profile', { id, name, license, image, email });
 });
 
 const PORT = process.env.PORT || 3000;

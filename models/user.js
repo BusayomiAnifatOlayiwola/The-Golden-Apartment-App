@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.user.hasOne(models.apartment)
     }
   };
   user.init({
@@ -24,6 +25,8 @@ module.exports = (sequelize, DataTypes) => {
        }
       }
     },
+    license: DataTypes.STRING,
+    image: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       validate: {
@@ -70,7 +73,5 @@ module.exports = (sequelize, DataTypes) => {
     return userData;
   }
 
-  return user; // above here
+  return user;
 };
-
-
