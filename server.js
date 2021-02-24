@@ -4,7 +4,7 @@ const layouts = require('express-ejs-layouts');
 const session = require('express-session');
 const passport = require('./config/ppConfig'); 
 const flash = require('connect-flash');
-
+const methodOverride = require('method-override');
 
 
 const multer = require('multer');
@@ -19,7 +19,7 @@ const uploads = multer({ dest: './uploads'})
 
 const app = express();
 app.set('view engine', 'ejs');
-
+app.use(methodOverride('_method'))
 // Session 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const isLoggedIn = require('./middleware/isLoggedIn');

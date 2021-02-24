@@ -31,15 +31,70 @@ router.post('/', async(req, res) => {
     }
   });
   
+  // GET Dogs Show
+//localhost:4000/apartment/1
+router.get('/:id', async(req, res) => {
+  try{
+  const foundApartment = await db.apartment.findByPk(req.params.id)
   
+    res.render('apartments/show.ejs', {
+      apartment: foundApartment,
+});
+  }catch(e) {
+    console.log(e)
+}
+});
+// DELETE user Destroy
+//localhost:4000/apartment/1
+router.delete('/:id', async(req, res) => {
+  try {
+    await db.apartment.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.redirect('/apartment');
+  } catch(e) {
+    console.log(e.message)
+  }
+});
   
-  // GET Dogs New
-  //localhost:4000/dogs/new
-  //for showing the form
-  router.get('/profile', (req, res) => {
-    res.render('profile.ejs');
+ // GET Dogs Edit
+//localhost:4000/apartment/1/edit
+router.get('/:id/edit', async(req, res) => {
+  try{
+  const apartment = await db.apartment.findOne({ where: {id: req.params.id}})
+  
+    res.render('apartments/edit.ejs', { apartment:apartment });
+  } catch(e) {
+console.log(e)
+  }
   });
+
+
+
+// PUT Dogs Update
+//localhost:4000/apartment/3
+router.put('/:id', async(req, res) => {
+  try{
+const updatedApartment = await db.apartment.update({ name: req.body.name}, {
+    where: {
+      id: req.params.id
+    }
+  })
   
+      console.log('Updated Apartment = ', updatedApartment);
+      res.redirect('/apartment');
+
+}catch(e){
+  console.log(e.message)
+}
+});
+
+
+
+
+
 
 
 module.exports = router;

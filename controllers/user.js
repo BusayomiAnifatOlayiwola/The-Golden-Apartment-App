@@ -23,12 +23,28 @@ router.post('/images', uploads.single('inputFile'), (req,res)=>{
    //upload to cloudinary
    cloudinary.uploader.upload(image, (result)=>{
       //result comes back from cloudinary
+      // Change everyone with id of req.user.id
+
+db.user.update({ image: result.url }, {
+  where: {
+    id: req.user.id
+  }
+
+})
+.then(() => {
       console.log(result)
-      res.render('index', { image: result.url })
+      res.redirect('./user', { image: result.url })
    })
 })
+})
 
-
+// GET Dogs New
+  //localhost:4000/dogs/new
+  //for showing the form
+  router.get('/profile', (req, res) => {
+    res.render('profile.ejs');
+  });
+  
 
 
 module.exports = router;
