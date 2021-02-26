@@ -7,3 +7,37 @@ nav ul li {
 h1 {
   color: chartreuse;
 }
+
+.profilepicture{
+  width: 150px;
+  height: 150px;
+}
+
+.hppicture{
+  width: 600px;
+  height: 350px;
+  margin-top: 30px;
+}
+
+.footer{
+
+  margin-left: 700px;
+    margin-top: 250px;
+}
+
+.infop{
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+
+  /* margin-left: auto;
+  order: 2;
+   display:flex; */
+   /* justify-content: flex-end; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+ }
+
+ .greetingh{
+  text-align: center;
+ }

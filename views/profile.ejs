@@ -1,43 +1,44 @@
-<h2>Profile</h2>
+<h2>Profile Page</h2>
 
 <h5>Welcome to your profile <%= name %></h5>
 
-<form action ="/images" method ="POST" enctype="multipart/form-data">
-    <label for="inputFile">Image</label>
-     <input type="file" name="inputFile">
-     <button type="submit" class="btn btn-primary">Upload Image</button>
-  </form>
+
 
 </hr>
 
+<img class='profilepicture'src='<%= image %> '/>
 <p>Id: <%= id %></p>
 <p>Name: <%= name %></p>
 <p>Email: <%= email %></p>
 <p>License: <%= license %></p>
-
-
 <hr>
 
+<form action ='/user/image/?_method=PUT' method ="POST" enctype="multipart/form-data">
+    <label for="inputFile">Image</label>
+     <input type="file" name="inputFile">
+     <button type="submit" class="btn btn-primary">Upload Image</button>
+  </form>
+<hr>
 <h3>Fill the Apartment Registration Form </h3>
 <br>
- <br>
+ 
 <form method="POST" action="/apartment">
 
     <label for="name">Name</label>
     <input id="name" type="text" name="name">
     <br>
-    <br>
+    
     <label for="bedrooms">Bedroom Type</label>
     <input id="bedrooms" type="text" name="bedrooms">
     <br>
-    <br>
+    
     <label for="bathrooms">Bathrooms Type</label>
     <input id="bathrooms" type="text" name="bathrooms">
     <br>
-    <br>
+    
     <label for="userId">UserId</label>
     <input id="userId" type="text" name="userId">
     <br>
-    <br>
+   
     <input type="submit">
 </form>

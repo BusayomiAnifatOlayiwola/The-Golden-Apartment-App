@@ -26,7 +26,10 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     license: DataTypes.STRING,
-    image: DataTypes.STRING,
+    image: {
+      type :DataTypes.STRING,
+      defaultValue: 'https://lh3.googleusercontent.com/proxy/7C7_Xfy4A5VtBNgBEXHoyUlOCC6OWE63h1oCDFNTNzatdV9xzRVXwCXqIEewe1lFNqSWACDOut6GdLJFJ0iusWn1rycV2ZYPQo_MM9UZCLAgksVdntsmzVKcNDi1XniPj2k'
+    },
     email: {
       type: DataTypes.STRING,
       validate: {

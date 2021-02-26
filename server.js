@@ -56,7 +56,7 @@ app.use((req, res, next) => {
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
-app.use('/users', require('./controllers/user'));
+app.use('/user', require('./controllers/user'));
 app.use('/review', require('./controllers/review'));
 app.use('/apartment', require('./controllers/apartment'));
 

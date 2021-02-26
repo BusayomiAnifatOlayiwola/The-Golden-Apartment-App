@@ -12,11 +12,11 @@ const uploads = multer({ dest: './uploads'})
 
 
 
-router.get('/images/new', function(req, res){
-  res.render('new')
+router.get('/profile', function(req, res){
+  res.render('profile')
 })
 
-router.post('/images', uploads.single('inputFile'), (req,res)=>{
+router.put('/image', uploads.single('inputFile'), (req,res)=>{
   //grab a uploaded file
   const image = req.file.path;
    console.log(image)
@@ -33,17 +33,18 @@ db.user.update({ image: result.url }, {
 })
 .then(() => {
       console.log(result)
-      res.redirect('./user', { image: result.url })
+      res.redirect('profile')
    })
 })
 })
 
-// GET Dogs New
-  //localhost:4000/dogs/new
-  //for showing the form
-  router.get('/profile', (req, res) => {
-    res.render('profile.ejs');
-  });
+
+// // GET Dogs New
+//   //localhost:4000/dogs/new
+//   //for showing the form
+//   router.get('/profile', (req, res) => {
+//     res.render('profile.ejs');
+//   });
   
 
 
